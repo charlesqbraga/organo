@@ -9,13 +9,18 @@ const Formulario = () => {
         'Cachorro', 
         'Outros'
     ]
+
+    const aoSalvar = (evento) => {
+        evento.preventDefault()
+        console.log('O form foi submetido')
+    }
     return (
         <section className="formulario" >
-            <form>
+            <form onSubmit={aoSalvar}>
                 <h2>Preencha os dados do pet que você deseja doar</h2>
-                <ListaSuspensa label="Tipo" itens={times}/>
-                <CampoTexto label="Nome" placeholder="Digite nome do pet" />
-                <CampoTexto label="Raça" placeholder="Digite a raça do pet" />
+                <ListaSuspensa obrigatorio ={true} label="Tipo" itens={times}/>
+                <CampoTexto obrigatorio ={true} label="Nome" placeholder="Digite nome do pet" />
+                <CampoTexto obrigatorio ={true} label="Raça" placeholder="Digite a raça do pet" />
                 <CampoTexto label="Imagem" placeholder="Digite o endereço da imagem" />
                 <Botao>
                     Criar anúncio
